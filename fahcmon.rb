@@ -20,7 +20,8 @@ def action_response(lumps)
   end
 end
 
-socket = TCPSocket.open("localhost", 36330)
+fahc_host = ARGV[0] || "localhost"
+socket = TCPSocket.open(fahc_host, 36330)
 
 Thread.new do
   socket.puts "updates clear"

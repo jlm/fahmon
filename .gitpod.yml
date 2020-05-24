@@ -1,5 +1,5 @@
 tasks:
   - init: bundle install
-    command: ruby fahcmon.rb
+    command: ruby fahcmon.rb 0.0.0.0
 image:
   file: .gitpod.Dockerfile

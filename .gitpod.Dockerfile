@@ -8,3 +8,10 @@ USER gitpod
 # RUN sudo apt-get -q update && #     sudo apt-get install -yq bastet && #     sudo rm -rf /var/lib/apt/lists/*
 #
 # More information: https://www.gitpod.io/docs/config-docker/
+
+# RUN sudo apt-get -q update &&  sudo apt-get install -yq SOMETHING && sudo rm -rf /var/lib/apt/lists/*
+#
+ENV FAHC_MAJOR 7.6
+ENV FAHC_VERSION 7.6.13
+RUN wget -O fahc.deb https://download.foldingathome.org/releases/public/release/fahclient/debian-stable-64bit/v${FAHC_MAJOR}/fahclient_${FAHC_VERSION}_amd64.deb \
+    && sudo dpkg install fahc.deb
