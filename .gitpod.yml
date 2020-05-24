@@ -1,0 +1,5 @@
+tasks:
+  - init: bundle install
+    command: ruby fahmon.rb
+image:
+  file: .gitpod.Dockerfile
