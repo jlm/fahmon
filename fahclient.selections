@@ -1,0 +1,11 @@
+# How much of your system resources should be used initially?
+# Choices: light, medium, full
+fahclient	fahclient/power	select	light
+# Folding@home Team Number:
+fahclient	fahclient/team	string	0
+# Folding@home Passkey:
+fahclient	fahclient/passkey	string
+# Folding@home User Name:
+fahclient	fahclient/user	string	Anonymous
+# Should FAHClient be automatically started?
+fahclient	fahclient/autostart	boolean	false
