@@ -3,7 +3,7 @@ image:
 ports:
   - port: 3000
     onOpen: open-preview
-  - port: 6080
+  - port: 5090
     onOpen: ignore
 tasks:
   - init: bundle install
