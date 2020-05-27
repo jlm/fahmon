@@ -1,6 +1,6 @@
+image:
+  file: .gitpod.Dockerfile
 tasks:
   - init: bundle install
     command: FAHClient --pause-on-start --pid --service --fork
     command: ruby fahcmon.rb 0.0.0.0
-image:
-  file: .gitpod.Dockerfile
