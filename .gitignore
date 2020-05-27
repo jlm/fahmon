@@ -1,3 +1,11 @@
+# FAHClient working files
+FAHClient.pid
+GPUs.txt
+log.txt
+logs/
+work/
+# end of FAHClient working files
+
 *.gem
 *.rbc
 /.config

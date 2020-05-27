@@ -19,3 +19,4 @@ RUN sudo dpkg-reconfigure debconf -f noninteractive -p critical && sudo debconf-
 
 RUN wget -O fahc.deb https://download.foldingathome.org/releases/public/release/fahclient/debian-stable-64bit/v${FAHC_MAJOR}/fahclient_${FAHC_VERSION}_amd64.deb \
     && sudo dpkg -i fahc.deb
+    
