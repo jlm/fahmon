@@ -14,7 +14,9 @@ USER gitpod
 ENV FAHC_MAJOR 7.6
 ENV FAHC_VERSION 7.6.13
 
-RUN sudo dpkg-reconfigure debconf -f noninteractive -p critical && sudo debconf-set-selections fahclient.selections
+COPY --chown=gitpod:gitpod fahclient.selections /tmp
+RUN sudo dpkg-reconfigure debconf -f noninteractive -p critical && sudo debconf-set-selections /tmp/fahclient.selections
 
 RUN wget -O fahc.deb https://download.foldingathome.org/releases/public/release/fahclient/debian-stable-64bit/v${FAHC_MAJOR}/fahclient_${FAHC_VERSION}_amd64.deb \
     && sudo dpkg -i fahc.deb
+    

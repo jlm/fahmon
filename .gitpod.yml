@@ -1,6 +1,12 @@
 image:
   file: .gitpod.Dockerfile
+ports:
+  - port: 3000
+    onOpen: open-preview
+  - port: 5090
+    onOpen: ignore
 tasks:
   - init: bundle install
-    command: FAHClient --pause-on-start --pid --service --fork
-    command: ruby fahcmon.rb 0.0.0.0
+    command: |
+      FAHClient --pause-on-start --pid --service --fork
+      ruby fahcmon.rb 0.0.0.0
