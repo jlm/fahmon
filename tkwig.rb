@@ -24,10 +24,26 @@ TkGrid.columnconfigure root, 0, :weight => 1; TkGrid.rowconfigure root, 0, :weig
 ### Row 1
 ###########################
 
+$folding_id = TkVariable.new
+
+#
+# The text label for the Folding ID
+#
+Tk::Tile::Label.new(content) {text 'Enter your ID'}.grid( :column => 1, :row => 1, :sticky => 'e')
+
+#
+# The Entry field for the Folding ID
+#
+f = Tk::Tile::Entry.new(content) {width 7; textvariable $folding_id}.grid( :column => 2, :row => 1, :sticky => 'we' )
+
+###########################
+### Row 2
+###########################
+
 #
 # The text label for the Folding score
 #
-Tk::Tile::Label.new(content) {text 'Your score is'}.grid( :column => 1, :row => 1, :sticky => 'e')
+Tk::Tile::Label.new(content) {text 'Your score is'}.grid( :column => 1, :row => 2, :sticky => 'e')
 
 #
 # A Font
@@ -38,42 +54,42 @@ AppHighlightFont = TkFont.new :family => 'Helvetica', :size => 24, :weight => 'b
 # Folding score variable
 #
 $foldscore = TkVariable.new
-Tk::Tile::Label.new(content) {textvariable $foldscore; font AppHighlightFont}.grid( :column => 2, :row => 1, :sticky => 'we');
-
-###########################
-### Row 2
-###########################
-
-#
-# The text label for the Rank
-#
-Tk::Tile::Label.new(content) {text 'Your rank is'}.grid( :column => 1, :row => 2, :sticky => 'e')
-
-#
-# Rank variable
-#
-$rank = TkVariable.new
-Tk::Tile::Label.new(content) {textvariable $rank; font AppHighlightFont}.grid( :column => 2, :row => 2, :sticky => 'we');
+Tk::Tile::Label.new(content) {textvariable $foldscore; font AppHighlightFont}.grid( :column => 2, :row => 2, :sticky => 'we');
 
 ###########################
 ### Row 3
 ###########################
 
 #
+# The text label for the Rank
+#
+Tk::Tile::Label.new(content) {text 'Your rank is'}.grid( :column => 1, :row => 3, :sticky => 'e')
+
+#
+# Rank variable
+#
+$rank = TkVariable.new
+Tk::Tile::Label.new(content) {textvariable $rank; font AppHighlightFont}.grid( :column => 2, :row => 3, :sticky => 'we');
+
+###########################
+### Row 4
+###########################
+
+#
 # The text label for the Status
 #
-Tk::Tile::Label.new(content) {text 'Status'}.grid( :column => 1, :row => 3, :sticky => 'e')
+Tk::Tile::Label.new(content) {text 'Status'}.grid( :column => 1, :row => 4, :sticky => 'e')
 
 #
 # Status variable
 #
 $fstatus = TkVariable.new
-Tk::Tile::Label.new(content) {textvariable $fstatus}.grid( :column => 2, :row => 3, :sticky => 'we');
+Tk::Tile::Label.new(content) {textvariable $fstatus}.grid( :column => 2, :row => 4, :sticky => 'we');
 
 #
 # A button
 #
-f = Tk::Tile::Button.new(content) {text 'Update'; command {getscore}}.grid( :column => 3, :row => 3, :sticky => 'w')
+f = Tk::Tile::Button.new(content) {text 'Update'; command {getscore}}.grid( :column => 3, :row => 4, :sticky => 'w')
 
 
 #
@@ -96,7 +112,7 @@ $fstatus.value = 'Unknown'
 #
 def getscore
     begin
-      scores = JSON.parse(URI.open('https://stats.foldingathome.org/api/donors?name=John_Messenger&search_type=exact').read())
+      scores = JSON.parse(URI.open("https://stats.foldingathome.org/api/donors?name=#{$folding_id.value}&search_type=exact").read())
       results = scores['results'][0]
       $foldscore.value = results['credit']
       $rank.value = results['rank']
