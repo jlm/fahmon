@@ -25,8 +25,8 @@ socket = TCPSocket.open(fahc_host, 36330)
 
 Thread.new do
   socket.puts "updates clear"
-  socket.puts "updates add 0 10 $slot-info"
-  socket.puts "updates add 1 15 $queue-info"
+  socket.puts "updates add 5 10 $slot-info"
+  socket.puts "updates add 6 15 $queue-info"
   unless true
     loop do
       socket.puts "queue-info"
