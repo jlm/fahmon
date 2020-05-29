@@ -19,3 +19,8 @@ Installing TK
 -------------
 FAHCmon uses Ruby's `tk` gem, which doesn't support `tk8.6` which is the current vertsion.  Gitpod is based on
 Ubuntu 20.4 at present.  There's no gem for `tk8.5` right now.  Oh well.
+
+Next directions
+---------------
+
+TK is old and painful.  Perhaps I can use Shoes instead.  For FAHClient, I can install a mock server.
