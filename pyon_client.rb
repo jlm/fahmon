@@ -5,7 +5,7 @@ require './sock_client.rb'
 class PyONClient < Client
 
   def parse_response(resp)
-    puts "parse_response: processing response: #{resp}" if $debug
+    puts "parse_response: processing response: #{resp}" if $DEBUG
     lumps = []
     pktsplit = resp.split(/(PyON 1 \w+)|(---)/)
     pktsplit.slice_before(/^PyON/).each do |pkt|
@@ -22,8 +22,8 @@ class PyONClient < Client
         lumps << [ name, JSON.parse(json_content) ]
       end
     end
-    puts "parse_response prints:" if $debug
-    p lumps if $debug
+    puts "parse_response prints:" if $DEBUG
+    p lumps if $DEBUG
     @pyon_answer_processor.call(lumps) if @pyon_answer_processor
   end
 
