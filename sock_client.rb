@@ -33,6 +33,10 @@ class Client
           rescue IO::WaitReadable
             IO.select([@socket])
             retry
+          rescue EOFError => ee
+            puts "socket: " + ee.message
+            @socket.close
+            exit(1)
           end
             #puts "#{response}"
           @answer_processor.call(response) if @answer_processor
