@@ -3,7 +3,7 @@ require 'socket'
 require './pyon_client.rb'
 
 def action_response(lumps)
-  puts "action_response says:" if $debug
+  puts "action_response says:" if $DEBUG
   lumps.each do |lump|
     case lump[0]
     when "slots"
