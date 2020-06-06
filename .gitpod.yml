@@ -7,6 +7,6 @@ ports:
     onOpen: ignore
 tasks:
   - init: bundle install
-    command: |
-      FAHClient --pause-on-start --pid --service --fork
-      ruby fahcmon.rb 0.0.0.0
+    command: >
+      ruby mock_fahc.rb
+      && ruby fahcmon.rb
