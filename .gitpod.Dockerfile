@@ -12,8 +12,9 @@ USER gitpod
 # RUN sudo apt-get -q update &&  sudo apt-get install -yq SOMETHING && sudo rm -rf /var/lib/apt/lists/*
 #
 
-RUN sudo apt-get install -y tcl8.5-dev tk8.5-dev \
-    && rm -rf /var/lib/apt/lists/*
+# Now this has stopped working too for no reason I can see.
+# RUN sudo apt-get install -y tcl8.5-dev tk8.5-dev \
+#     && rm -rf /var/lib/apt/lists/*
 
 # While these commands do work to install FAHClient, it won't run in this environment because of an "Operation not permitted" error.
 # ENV FAHC_MAJOR 7.6
