@@ -7,6 +7,5 @@ ports:
     onOpen: ignore
 tasks:
   - init: bundle install
-    command: >
-      ruby mock_fahc.rb
-      && ruby fahcmon.rb
+    command: ruby mock_fahc.rb
+    command: ruby fahcmon.rb
