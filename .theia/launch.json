@@ -1,8 +1,21 @@
 {
-  // Use IntelliSense to learn about possible attributes.
-  // Hover to view descriptions of existing attributes.
-  "version": "0.2.0",
-  "configurations": [
-      
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    "version": "0.2.0",
+    "configurations": [
+    {
+        "name": "Debug Local File",
+        "type": "Ruby",
+        "request": "launch",
+        "program": "${workspaceRoot}/fahcmon.rb"
+    },
+    {
+        "type": "ruby-debug",
+        "request": "launch",
+        "name": "Fahcmon",
+        "program": "${workspaceRoot}/fahcmon.rb",
+        "programArgs": [],
+        "useBundler": true
+    }
   ]
 }
