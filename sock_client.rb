@@ -9,7 +9,10 @@ class Client
     @response_object = listen_response
 
     @request_object.join    # will send the request
+
+    puts "Sock client now joining to response object" if $DEBUG
     @response_object.join   # will receive the responses from the server
+    puts "Sock client: this will never be reached"
   end
 
   def send_request

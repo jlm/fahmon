@@ -116,20 +116,9 @@ def getscore
 end
 
 #
-# A little routine for debugging
+# A timer to update the score every 60k milliseconds
 #
-def incscore
-  begin
-    $foldscore.value = $foldscore + 1
-  rescue
-    $foldscore.value = ''
-  end
-end
-
-#
-# A timer to update the score every 60k milliseconed
-#
-timproc = proc { puts 'The timer went off'; getscore }
+timproc = proc { getscore }
 TkTimer.new(60 * 1000, -1, timproc).start()
 
 #
